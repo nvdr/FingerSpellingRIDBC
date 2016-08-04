@@ -20,22 +20,4 @@ try {
     die();
 }
 
-
-class GuestBook {
-  public $letter, $id, $entry;
-
-  public function __construct(){
-    $this->entry = "{$this->letter} is awesome";
-  }
-
-}
-
-//Query database
-$query = $dbh->query('SELECT * FROM letters');
-$query->setFetchMode(PDO::FETCH_CLASS, 'GuestBook');
-while($r = $query->fetch()){
-  echo $r->entry . "<br/><br/>";
-  //print "<br/>";
-}
-
 ?>
